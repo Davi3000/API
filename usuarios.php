@@ -1,4 +1,13 @@
+<?php
+include "UsuarioDAO.php";
+
+$usuarioDAO = new UsuarioDAO();
+$lista = ($usuarioDAO->buscar());
+?>
 <!DOCTYPE html>
+
+
+
 <html lang="pt-br">
 
 <head>
@@ -80,29 +89,21 @@
                         <th>E-mail</th>
                         <th>Ações</th>
                     </tr>
-                    <br>
-                    <br>
+                    
+                    <?php foreach($lista as $users): ?>
                     <tr>
-                        <td>1°</td>
-                        <td>Bruno</td>
-                        <td>bruno.pescarolli@outlook.com</td>
+                        <td><?= $users->UserID?></td>
+                        <td><?= $users->Nome?></td>
+                        <td><?= $users->Email?></td>
                         <td>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            <a class="btn btn-danger" href="usercontrol.php?acao=apagar&id=<?= $users->UserID?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
-                        <tr>
-                        <td>2°</td>
-                        <td>Davi</td>
-                        <td>nearwiner1234567@gmail.com</td>
-                        <td>
-                            <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                        </td>
-                        </tr>
+                        
                         
                     </tr>
+                    <?php endforeach ?>
                 </table>
                 <!--<div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Usuário" aria-label="Username" aria-describedby="basic-addon1">
