@@ -19,7 +19,7 @@ class UsuarioDAO{
     }
     public function inserir(){
                           
-        $sql = "INSERT INTO users VALUES (0, '$this->nome', '$this->email', '$this->senha')"; 
+        $sql = "INSERT INTO users VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))"; 
         $rs = $this->con->query($sql);
         if($rs)
             header("Location: usuarios.php");
@@ -34,6 +34,14 @@ class UsuarioDAO{
             $listaDeUsuarios[] = $linha;
         }
         return $listaDeUsuarios;
+    }
+    public function trocaSenha($id, $senha){
+        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID=$id";
+        $rs = $this->con->query($sql);
+        if($rs)
+            header("Location: usuarios.php");
+        else
+            echo $this->con->error;
     }
 
 }

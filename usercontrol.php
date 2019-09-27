@@ -18,6 +18,13 @@ switch ($acao) {
         $users->apagar($id);
         break;
     
+    case 'trocaSenha':
+        $users = new UsuarioDAO();
+        $id =  $_POST["id"];
+        $senha =  $_POST["senha"];
+        $users->trocaSenha($id, $senha);
+        break;
+    
     default:
         # code...
         break;
