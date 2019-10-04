@@ -4,7 +4,6 @@ class UsuarioDAO{
     public $nome;
     public $email;
     public $senha;
-
     private $con;
 
     function __construct(){
@@ -36,7 +35,7 @@ class UsuarioDAO{
         return $listaDeUsuarios;
     }
     public function trocaSenha($id, $senha){
-        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID=$id";
+        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID='$id'";
         $rs = $this->con->query($sql);
         if($rs)
             header("Location: usuarios.php");
@@ -45,4 +44,5 @@ class UsuarioDAO{
     }
 
 }
+
 ?>

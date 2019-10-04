@@ -31,9 +31,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Nome` varchar(200) NOT NULL,
   `Email` varchar(200) NOT NULL,
   `Senha` varchar(200) NOT NULL,
+
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+
+CREATE TABLE IF NOT EXISTS `questions` (
+  `IDDesafio` int(10) NOT NULL AUTO_INCREMENT,
+  `Desafio` varchar(300) NOT NULL,
+  `TDesafio` int(1) NOT NULL,
+
+ 
+  PRIMARY KEY (`IDDesafio`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 --
 -- Extraindo dados da tabela `users`
 --
@@ -41,6 +51,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`UserID`, `Nome`, `Email`, `Senha`) VALUES
 (1, 'Davi', 'Dacvi', 'Vsai'),
 (2, 'qwrqrqw', 'qwrqwr', 'rqwrqwwqr');
+
+INSERT INTO `questions` (`IDDesafio`, `Desafio`, `TDesafio`) VALUES
+;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
