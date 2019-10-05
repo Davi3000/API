@@ -2,7 +2,8 @@
 /**
  * 
  */
-class Questions
+class quizDAO
+
 {
 	public $Desafio;
 	public $IDDesafio;
@@ -21,7 +22,7 @@ class Questions
             echo $this->conQuiz->error;
 	}
 	public function trocarQuiz(){
-        $sql = "UPDATE questions SET Desafio WHERE IDDesafio='$IDDesafio'";
+        $sql = "UPDATE questions SET Desafio WHERE IDDesafio=$ID";
         $rs = $this->conQuiz->query($sql);
         if($rs)
             header("Location: quiz.php");
@@ -29,7 +30,7 @@ class Questions
             echo $this->conQuiz->error;
 	}
 	public function apagarQuiz(){
-		$sql = "DELETE FROM questions WHERE IDDesafio=$IDDesafio";
+		$sql = "DELETE FROM questions WHERE IDDesafio=$ID";
         $rs = $this->conQuiz->query($sql);
         if ($rs) header("Location: quiz.php");
         else echo $this->conQuiz->error;

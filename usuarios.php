@@ -67,7 +67,7 @@ $lista = ($usuarioDAO->buscar());
                         <a class="nav-link active" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="quiz.php">Quiz</a>
+                        <a class="nav-link" href="tentativa.php">Quiz</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

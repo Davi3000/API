@@ -1,6 +1,6 @@
 <?php
 include "quizDAO.php";
-$quizDAO = new Questions();
+$quizDAO = new quizDAO();
 $listaQuiz = ($quizDAO->inserirQuiz());
 ?>
 <!DOCTYPE html>
@@ -46,7 +46,7 @@ $listaQuiz = ($quizDAO->inserirQuiz());
                 </li>
             </ul>
             </div>
-            <form class="form-inline my-2 my-lg-0" action="usercontrol.php" >
+            <form class="form-inline my-2 my-lg-0" action="quizcontrol.php" >
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -72,7 +72,7 @@ $listaQuiz = ($quizDAO->inserirQuiz());
                 </ul>
             </div>
             <div>
-                <button class="btn btn-dark" data-toggle="modal" data-target="#newmodalQuiz">
+                <button class="btn btn-dark" data-toggle="modal"  data-target="#newmodalQuiz">
                 Cadastrar pergunta
                 </button>
                 <table class="table">
@@ -90,8 +90,8 @@ $listaQuiz = ($quizDAO->inserirQuiz());
                         <td><?= $questions->TDesafio?></td>
                         <td>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-warning alterar-senha" data-id="<?= $questions->IDDesafio?>"><i class="fas fa-pen" data-toggle="modal" data-target="#modalsenha"></i></button>
-                            <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&IDDesafio=<?= $questions->IDDesafio?>"><i class="fas fa-trash-alt"></i></a>
+                            <button class="btn btn-warning alterar-senha" data-id="<?= $questions->IDDesafio?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalQuiz"></i></button>
+                            <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&ID=<?= $questions->IDDesafio?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         
                         
@@ -109,20 +109,21 @@ $listaQuiz = ($quizDAO->inserirQuiz());
         </button>
       </div>
       <div class="modal-body">
-    <form action="quiz.php?acao=inserirQuiz" method="POST">
+    <form action="quizcontrol.php?acao=inserirQuiz" method="POST">
       <div class="input-group mb-3">
                     <input type="text" name="nome" class="form-control" placeholder="Escreva a pergunta..." aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="nome" class="form-control" placeholder="Digite o tipo da questão..." aria-label="Username" aria-describedby="basic-addon1">
                     
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="submit" class="btn btn-primary" href="quizcontrol.php?acao=inserirQuiz&ID=<?= $questions->Desafio?>">Salvar</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="modalsenha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="newmodalQuiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

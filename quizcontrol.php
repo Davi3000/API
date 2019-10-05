@@ -5,7 +5,8 @@ switch ($acao) {
     case 'inserirQuiz':
         $questions= new quizDAO();
         $questions->Desafio = $_POST["Desafio"];
-        $questions->inserir();
+        $questions->TDesafio = $_POST["TDesafio"];
+        $questions->inserirQuiz();
         break;
         
     case 'apagarQuiz':

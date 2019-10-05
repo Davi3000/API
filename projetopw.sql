@@ -39,16 +39,13 @@ INSERT INTO `users` (`UserID`, `Nome`, `Email`, `Senha`) VALUES
 (1, 'Davi', 'Dacvi', 'Vsai'),
 (2, 'qwrqrqw', 'qwrqwr', 'rqwrqwwqr');
 
---
--- Extraindo dados da tabela `users`
---
 
 CREATE TABLE IF NOT EXISTS `questions` (
-  `IDDesafio` int(10) NOT NULL AUTO_INCREMENT,
+  `IDDesafio` int(11) NOT NULL AUTO_INCREMENT,
   `Desafio` varchar(300) NOT NULL,
-  `TDesafio` int(1) NOT NULL,
+  `TDesafio` varchar(20) NOT NULL,
+  
 
- 
   PRIMARY KEY (`IDDesafio`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -57,6 +54,6 @@ INSERT INTO `questions` (`IDDesafio`, `Desafio`, `TDesafio`) VALUES
 
 
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
