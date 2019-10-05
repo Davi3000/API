@@ -109,7 +109,7 @@ $listaQuiz = ($quizDAO->inserirQuiz());
         </button>
       </div>
       <div class="modal-body">
-    <form action="usercontrol.php?acao=inserir" method="POST">
+    <form action="quiz.php?acao=inserirQuiz" method="POST">
       <div class="input-group mb-3">
                     <input type="text" name="nome" class="form-control" placeholder="Escreva a pergunta..." aria-label="Username" aria-describedby="basic-addon1">
                     
