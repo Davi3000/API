@@ -19,7 +19,7 @@ switch ($acao) {
         $questions = new quizDAO();
         $IDDesafio =  $_POST["IDDesafio"];
         $Desafio =  $_POST["Desafio"];
-        $questions->trocaSenha($IDDesafio, $Desafio);
+        $questions->trocarQuiz($IDDesafio, $Desafio);
         break;
     
     default:

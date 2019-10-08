@@ -1,7 +1,8 @@
 <?php
 include "quizDAO.php";
+
 $quizDAO = new quizDAO();
-$listaQuiz = ($quizDAO->inserirQuiz());
+$listaQuiz = ($quizDAO->buscarQuiz());
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

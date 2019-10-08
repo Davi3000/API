@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `IDDesafio` int(11) NOT NULL AUTO_INCREMENT,
   `Desafio` varchar(300) NOT NULL,
   `TDesafio` varchar(20) NOT NULL,
-  
 
   PRIMARY KEY (`IDDesafio`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
