@@ -35,9 +35,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO `users` (`UserID`, `Nome`, `Email`, `Senha`) VALUES
-(1, 'Davi', 'Dacvi', 'Vsai'),
-(2, 'qwrqrqw', 'qwrqwr', 'rqwrqwwqr');
+
 
 
 CREATE TABLE IF NOT EXISTS `questions` (
@@ -48,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   PRIMARY KEY (`IDDesafio`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO `questions` (`IDDesafio`, `Desafio`, `TDesafio`) VALUES
+
 
 
 
