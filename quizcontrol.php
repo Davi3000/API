@@ -11,13 +11,13 @@ switch ($acao) {
         
     case 'apagarQuiz':
         $questions = new quizDAO();
-        $IDDesafio =  $_GET["IDDesafio"];
-        $questions->apagar($id);
+        $id =  $_GET["id"];
+        $questions->apagarQuiz($id);
         break;
     
     case 'trocarQuiz':
         $questions = new quizDAO();
-        $IDDesafio =  $_POST["IDDesafio"];
+        $id =  $_POST["id"];
         $Desafio =  $_POST["Desafio"];
         $questions->trocarQuiz($IDDesafio, $Desafio);
         break;

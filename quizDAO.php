@@ -11,7 +11,7 @@ class quizDAO
 	private $conQuiz;
 
 	function __construct(){
-        $this->conQuiz = mysqli_connect("localhost:3307","root","", "projetopw");
+        $this->conQuiz = mysqli_connect("localhost","root","", "projetopw");
     }
 	public function inserirQuiz(){
 		$sql = "INSERT INTO questions VALUES (0, '$this->Desafio', '$this->TDesafio')"; 
@@ -39,7 +39,7 @@ class quizDAO
         return $listaDePerguntas;
     }
 	public function apagarQuiz(){
-		$sql = "DELETE FROM questions WHERE IDDesafio=$ID";
+		$sql = "DELETE FROM questions WHERE IDDesafio=$id";
         $rs = $this->conQuiz->query($sql);
         if ($rs) header("Location: quiz.php");
         else echo $this->conQuiz->error;

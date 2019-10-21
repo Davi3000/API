@@ -78,8 +78,8 @@ $listaQuiz = ($quizDAO->buscarQuiz());
                 </button>
                 <table class="table">
                     <tr>
-                        <th>#</th>
-                        <th></th>
+                        <th>id</th>
+                        <th>Desafio</th>
                         <th>Tipo</th>
                         <th>Ações</th>
                     </tr>
