@@ -5,7 +5,7 @@
 
                 <ul class="nav flex-column  nav-pills vertical">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="usuarios.php" >Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="quiz.php">Quiz</a>
