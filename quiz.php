@@ -17,7 +17,7 @@ include "menuLateral.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/all.min.css">
-    <title>Usuários</title>
+    <title>Desafios</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ include "menuLateral.php";
                         <td>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
                             <button class="btn btn-warning alterar-senha" data-id="<?= $questions->IDDesafio?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalQuiz"></i></button>
-                            <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&ID=<?= $questions->IDDesafio?>"><i class="fas fa-trash-alt"></i></a>
+                            <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&id=<?= $questions->IDDesafio?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         
                         
@@ -63,8 +63,8 @@ include "menuLateral.php";
       <div class="modal-body">
     <form action="quizcontrol.php?acao=inserirQuiz" method="POST">
       <div class="input-group mb-3">
-                    <input type="text" name="nome" class="form-control" placeholder="Escreva a pergunta..." aria-label="Username" aria-describedby="basic-addon1">
-                    <input type="text" name="nome" class="form-control" placeholder="Digite o tipo da questão..." aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="Desafio" class="form-control" placeholder="Escreva a pergunta..."  aria-describedby="basic-addon1">
+                    <input type="text" name="TDesafio" class="form-control" placeholder="Digite o tipo da questão..."  aria-describedby="basic-addon1">
                     
       </div>
       <div class="modal-footer">

@@ -11,21 +11,21 @@ class quizDAO
 	private $conQuiz;
 
 	function __construct(){
-        $this->conQuiz = mysqli_connect("localhost:3307","root","", "projetopw");
+        $this->conQuiz = mysqli_connect("localhost","root","etecia", "projetopw");
     }
 	public function inserirQuiz(){
 		$sql = "INSERT INTO questions VALUES (0, '$this->Desafio', '$this->TDesafio')"; 
         $rs = $this->conQuiz->query($sql);
         if($rs)
-            header("Location: quiz.php");
+            header("Location: /questoes");
         else
             echo $this->conQuiz->error;
 	}
 	public function trocarQuiz(){
-        $sql = "UPDATE questions SET Desafio WHERE IDDesafio=$ID";
+        $sql = "UPDATE questions SET Desafio WHERE IDDesafio=$id";
         $rs = $this->conQuiz->query($sql);
         if($rs)
-            header("Location: quiz.php");
+            header("Location: /questoes");
         else
             echo $this->conQuiz->error;
     }
@@ -38,10 +38,10 @@ class quizDAO
         }
         return $listaDePerguntas;
     }
-	public function apagarQuiz(){
+	public function apagarQuiz($id){
 		$sql = "DELETE FROM questions WHERE IDDesafio=$id";
         $rs = $this->conQuiz->query($sql);
-        if ($rs) header("Location: quiz.php");
+        if ($rs) header("Location: /questoes");
         else echo $this->conQuiz->error;
 	}
 	
