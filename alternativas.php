@@ -1,7 +1,7 @@
 <?php
 include "alternativasDAO.php";
 $alternativasDAO = new alternativasDAO();
-$listaAlternativas = ($alternativasDAO->buscarAlternativas());
+$listaDeAlternativas = ($alternativasDAO->buscarAlternativas());
 
 include "cabecalho.php";
 include "menuLateral.php";?>
@@ -17,9 +17,9 @@ include "menuLateral.php";?>
 </head>
 <body>
 <div class="col-10">
-            <h1>Desafios</h1>
-                <button class="btn btn-dark" data-toggle="modal"  data-target="#newmodalQuiz">
-                Cadastrar pergunta
+            <h1>Alternativas</h1>
+                <button class="btn btn-dark" data-toggle="modal"  data-target="#newmodalAlternativa">
+                Cadastrar Alternativa(s)
                 </button>
                 <table class="table">
                     <tr>
@@ -29,7 +29,7 @@ include "menuLateral.php";?>
                         <th>ID da questão</th>
                     </tr>
                     
-                    <?php foreach($listaQuiz as $alternativas): ?>
+                    <?php foreach($listaDeAlternativas as $alternativas): ?>
                     <tr>
                         <td><?= $alternativas->idAlternativa?></td>
                         <td><?= $alternativas->texto?></td>
@@ -37,8 +37,8 @@ include "menuLateral.php";?>
                         <td><?= $alternativas->idQuestao?></td>
                         <td>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-warning alterar-senha" data-id="<?= $alternativas->idAlternativa?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalQuiz"></i></button>
-                            <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&id=<?= $alternativas->idAlternativa?>"><i class="fas fa-trash-alt"></i></a>
+                            <button class="btn btn-warning alterar-senha" data-id="<?= $alternativas->idAlternativa?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalAlternativa"></i></button>
+                            <a class="btn btn-danger" href="alternativascontrol.php?acao=apagarAlternativa&id=<?= $alternativas->idAlternativa?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         
                         
@@ -46,7 +46,7 @@ include "menuLateral.php";?>
                     <?php endforeach ?>
                 </table>
             </div>
-            <div class="modal fade" id="newmodalQuiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal fade" id="newmodalAlternativa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -56,7 +56,7 @@ include "menuLateral.php";?>
         </button>
       </div>
       <div class="modal-body">
-    <form action="quizcontrol.php?acao=inserirQuiz" method="POST">
+    <form action="alternativascontrol.php?acao=inserirAlternativa" method="POST">
       <div class="input-group mb-3">
                     <input type="text" name="texto" class="form-control" placeholder="Escreva a Alternativa"  aria-describedby="basic-addon1">
                     <input type="text" name="correto" class="form-control" placeholder="Digite o tipo da questão..."  aria-describedby="basic-addon1">
@@ -64,13 +64,13 @@ include "menuLateral.php";?>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-          <button type="submit" class="btn btn-primary" href="quizcontrol.php?acao=inserirQuiz&ID=<?= $alternativas->Desafio?>">Salvar</button>
+          <button type="submit" class="btn btn-primary" href="alternativascontrol.php?acao=inserirAlternativa&id=<?= $alternativas->texto?>">Cadastrar</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="newmodalQuiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="newmodalAlternativa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -80,15 +80,15 @@ include "menuLateral.php";?>
         </button>
       </div>
       <div class="modal-body">
-    <form action="quizcontrol.php?acao=trocarQuiz" method="POST">
+    <form action="alternativascontrol.php?acao=trocarAlternativa" method="POST">
       <div class="input-group mb-3">
                     
                 </div>
                 <input type="hidden" name="id" id="campo-id">
-                <div class="input-group mb-3">
+                <!--<div class="input-group mb-3">
                 
                     <input type="text" name="senha" class="form-control" placeholder="Pergunta" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
+                </div>-->
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
