@@ -1,4 +1,8 @@
 <?php
+include "alternativasDAO.php";
+$alternativasDAO = new alternativasDAO();
+$listaAlternativas = ($alternativasDAO->buscarAlternativas());
+
 include "cabecalho.php";
 include "menuLateral.php";?>
 <!DOCTYPE html>
