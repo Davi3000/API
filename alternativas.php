@@ -33,7 +33,7 @@ include "menuLateral.php";?>
                     <tr>
                         <td><?= $alternativas->idAlternativa?></td>
                         <td><?= $alternativas->texto?></td>
-                        <td><?= $alternativas->correto?></td>
+                        <td><?= $alternativas->correta?></td>
                         <td><?= $alternativas->idQuestao?></td>
                         <td>
                             <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
@@ -59,12 +59,12 @@ include "menuLateral.php";?>
     <form action="alternativascontrol.php?acao=inserirAlternativa" method="POST">
       <div class="input-group mb-3">
                     <input type="text" name="texto" class="form-control" placeholder="Escreva a Alternativa"  aria-describedby="basic-addon1">
-                    <input type="text" name="correto" class="form-control" placeholder="Digite o tipo da questão..."  aria-describedby="basic-addon1">
+                    <input type="text" name="correta" class="form-control" placeholder="Digite o tipo da questão..."  aria-describedby="basic-addon1">
                     
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-          <button type="submit" class="btn btn-primary" href="alternativascontrol.php?acao=inserirAlternativa&id=<?= $alternativas->texto?>">Cadastrar</button>
+          <button type="submit" class="btn btn-primary" href="alternativascontrol.php?acao=inserirAlternativas&id=<?= $alternativas->texto?>">Cadastrar</button>
         </form>
       </div>
     </div>

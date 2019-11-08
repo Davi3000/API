@@ -5,7 +5,8 @@ switch ($acao){
     case 'inserirAlternativa':
     $alternativas = new alternativasDAO();
     $alternativas->texto = $_POST["texto"];
-    $alternativas->correto = $_POST["correto"];
+    $alternativas->correta = $_POST["correta"];
+    $alternativas->idQuestao = $_POST["idQuestao"];
     $alternativas->inserirAlternativa();
     break;
 

@@ -7,7 +7,7 @@ class UsuarioDAO{
     private $con;
 
     function __construct(){
-        $this->con = mysqli_connect("localhost","root","", "projetopw");
+        $this->con = mysqli_connect("localhost","root","etecia", "projetopw");
     }
     public function apagar($id){
         
@@ -43,6 +43,19 @@ class UsuarioDAO{
             echo $this->con->error;
     }
 
+    public function logar(){
+            $sql = "SELECT * FROM users WHERE
+            email='$this->email' AND 
+            senha=md5('$this->senha')";
+        $rs = $this->con->query($sql);
+        if($rs->num_rows){
+            session_start();
+            $_SESSION["logado"]=true;
+            header("Location:/usuarios");
+        }      else{
+            header("Location:/");
+        } 
+}
 }
 
 ?>
