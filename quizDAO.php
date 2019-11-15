@@ -11,7 +11,7 @@ class quizDAO
 	private $conQuiz;
 
 	function __construct(){
-        $this->conQuiz = mysqli_connect("localhost","root","etecia", "projetopw");
+        $this->conQuiz = mysqli_connect("localhost","root","", "projetopw");
     }
 	public function inserirQuiz(){
 		$sql = "INSERT INTO questions VALUES (0, '$this->Desafio', '$this->TDesafio')"; 

@@ -9,7 +9,7 @@ class alternativasDAO{
     private $conAlternativa;
 
     function __construct(){
-        $this->conAlternativa = mysqli_connect("localhost", "root", "etecia", "projetopw");
+        $this->conAlternativa = mysqli_connect("localhost", "root", "", "projetopw");
     }
     public function inserirAlternativa(){
         $sql = "INSERT INTO  alternativas  VALUES(0, '$this->texto','$this->correta', '$this->idQuestao')";

@@ -3,12 +3,13 @@ include "alternativasDAO.php";
 $acao = $_GET["acao"];
 switch ($acao){
     case 'inserirAlternativa':
-    $alternativas = new alternativasDAO();
-    $alternativas->texto = $_POST["texto"];
-    $alternativas->correta = $_POST["correta"];
-    $alternativas->idQuestao = $_POST["idQuestao"];
-    $alternativas->inserirAlternativa();
-    break;
+		$alternativa = new AlternativasDAO();
+		$alternativa->texto = $_POST["texto"];
+		$alternativa->idQuestao = $_POST["idQuestao"];
+		if (isset($_POST["correta"])) $alternativa->correta = 1;
+		else $alternativa->correta = 0;
+		$alternativa->inserirAlternativa();
+		break;
 
     case 'trocarAlternativa':
         $alternativas = new alternativasDAO();

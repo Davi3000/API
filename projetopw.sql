@@ -127,7 +127,7 @@ ALTER TABLE `users`
 -- Limitadores para a tabela `alternativas`
 --
 ALTER TABLE `alternativas`
-  ADD CONSTRAINT `idQuestao` FOREIGN KEY (`idQuestao`) REFERENCES `questions` (`IDDesafio`);
+  ADD CONSTRAINT `FK_das_questoes` FOREIGN KEY (`idQuestao`) REFERENCES `questions` (`IDDesafio`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
