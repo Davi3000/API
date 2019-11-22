@@ -1,4 +1,5 @@
 <?php
+require("verificaUsuario.php");
 include "alternativasDAO.php";
 $alternativasDAO = new alternativasDAO();
 $listaDeAlternativas = ($alternativasDAO->buscarAlternativas());

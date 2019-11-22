@@ -1,4 +1,5 @@
 <?php
+require("verificaUsuario.php");
 include "quizDAO.php";
 
 $quizDAO = new quizDAO();

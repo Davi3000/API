@@ -31,6 +31,16 @@ switch ($acao) {
         $users->senha = $_POST["senha"];
         $users->logar();
         break;
+    case 'editar':
+        $users = new UsuarioDAO();
+        $id = $_POST["id"];
+        $email = $_POST["email"];
+        $users->editar($id, $email);
+        break;
+    case 'sair':
+        $users = new UsuarioDAO();
+        $users->sair();
+        break;
 
     default:
         echo "Seu PC vai explodir mané...e tem coisa errada nesse código";
