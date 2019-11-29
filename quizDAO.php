@@ -2,6 +2,7 @@
 /**
  * 
  */
+require "config.php";
 class quizDAO
 
 {
