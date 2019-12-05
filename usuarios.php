@@ -140,7 +140,7 @@ include "menuLateral.php";
                     </div>
                     <div class="modal-body">
                         <form action="usercontrol.php?acao=editar" method="POST">
-                            <input type="hidden" name="id" id="campo-id-editar">
+                            <input type="hidden" name="id" id="editar-campo" >
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" name="nome" class="form-control" id="novonome" placeholder="nome completo">
@@ -171,6 +171,17 @@ include "menuLateral.php";
         var campo = document.querySelector("#campo-id");
         campo.value = botao.getAttribute("data-id");
     });
+
+    var button = document.querySelectorAll(".btn-editar");
+    console.log(button);
+    button.forEach(function(botao){
+        botao.addEventListener("click", function() {
+        var id = document.querySelector("#editar-campo");
+        id.value = botao.getAttribute("data-id");
+    });
+    })
+    
+
 </script>
 
 </html>

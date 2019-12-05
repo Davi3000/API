@@ -47,7 +47,7 @@ class UsuarioDAO
         return $listaDeUsuarios;
     }
     public function editar(){
-        $sql = "UPDATE users SET nome='$this->nome', email = '$this->email' WHERE UserID = '$this->id'";
+        $sql = "UPDATE users SET nome='$this->nome', email = '$this->email' WHERE UserID = $this->id";
         $rs = $this->con->query($sql);
         session_start();
         if($rs){
