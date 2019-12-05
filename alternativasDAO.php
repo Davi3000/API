@@ -12,7 +12,7 @@ function __construct(){
         $this->conAlternativa = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     }
     public function inserirAlternativa(){
-        $sql = "INSERT INTO  alternativas  VALUES(0, '$this->texto','$this->correta', '$this->idQuestao')";
+        $sql = "INSERT INTO  alternativas  VALUES(DEFAULT, '$this->texto','$this->correta', '$this->idQuestao')";
         $rs = $this->conAlternativa->query($sql);
         if($rs){
             header("Location: /alternativas?idQuestAl=". 'this->idQuestao');
@@ -21,7 +21,7 @@ function __construct(){
         }
     }
     public function trocarAlternativas(){
-        $sql = "UPDATE alternativas SET texto WHERE idAlternativa = $id";
+        $sql = "UPDATE alternativas SET texto WHERE idAlternativa = '$this->id'";
         $rs = $this->conAlternativa->query($sql);
         if($rs){
             header("Location: /alternativas");
@@ -39,7 +39,7 @@ function __construct(){
         return $listaDeAlternativas;
     }
     public function apagarAlternativas($idAlternativa){
-        $sql = "DELETE FROM alternativas WHERE idAlternativa = $id";
+        $sql = "DELETE FROM alternativas WHERE idAlternativa = '$this->id'";
         $rs = $this->conAlternativa->query($sql);
         if($rs){
             header("Location: /alternativas");

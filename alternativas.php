@@ -37,7 +37,7 @@ include "menuLateral.php";?>
                         <td><?= $alternativas->correta?></td>
                         <td><?= $alternativas->idQuestao?></td>
                         <td>
-                            <button class="btn btn-dark"><i class="fas fa-pen"></i></button>
+                            <button class="btn btn-success"><i class="fas fa-pen"></i></button>
                             <button class="btn btn-warning alterar-senha" data-id="<?= $alternativas->idAlternativa?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalAlternativa"></i></button>
                             <a class="btn btn-danger" href="alternativascontrol.php?acao=apagarAlternativa&id=<?= $alternativas->idAlternativa?>"><i class="fas fa-trash-alt"></i></a>
                         </td>

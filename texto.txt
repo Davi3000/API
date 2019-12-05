@@ -1,3 +1,12 @@
 <div class="d-flex justify-content-center links">
 					Don't have an account?<a href="criaConta.php">Sign Up</a>
 				</div>
+
+				< button  class = " btn aviso-btn-editar "  data-toggle = " modal "  
+				data-target = " #modaleditar "  
+				data-id = " <? = $users -> UserID ? > "   
+				data-nome = " < ? = $users->nome ? > "
+				    data-email = " <? = $users-> email ? > "   >
+							< i  class = " fas fa-user-edit " > 
+							</ i >
+						</ button >
