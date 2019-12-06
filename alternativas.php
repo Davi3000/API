@@ -2,6 +2,7 @@
 require("verificaUsuario.php");
 include "alternativasDAO.php";
 $alternativasDAO = new alternativasDAO();
+$alternativasDAO->idQuestao=$_GET["idQuestAl"];
 $listaDeAlternativas = ($alternativasDAO->buscarAlternativas());
 
 include "cabecalho.php";

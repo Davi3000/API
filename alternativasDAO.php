@@ -31,7 +31,7 @@ function __construct(){
         }
     }
     public function buscarAlternativas(){
-        $sql = "SELECT * FROM alternativas";
+        $sql = "SELECT * FROM alternativas WHERE idQuestao= $this->idQuestao";
         $rs = $this->conAlternativa->query($sql);
         while($linha = $rs->fetch_object()){
             $listaDeAlternativas[] = $linha;

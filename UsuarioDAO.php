@@ -29,6 +29,7 @@ class UsuarioDAO
 
         $sql = "INSERT INTO users VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
         $rs = $this->con->query($sql);
+        session_start();
         if ($rs) {
             $_SESSION["success"] = "usuário inserido com sucesso";
         } else {
@@ -60,7 +61,7 @@ class UsuarioDAO
 
     public function trocaSenha($id, $senha)
     {
-        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID='$this->id'";
+        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID=$id";
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {

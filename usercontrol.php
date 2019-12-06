@@ -37,6 +37,8 @@ switch ($acao) {
         $users->nome = $_POST["nome"];
         $users->email = $_POST["email"];
         $users->editar();
+        
+
         break;
     case 'sair':
         $users = new UsuarioDAO();
