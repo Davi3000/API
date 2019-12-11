@@ -10,9 +10,9 @@
                     <li class="nav-item">
                         <a class="nav-link <?= ($recurso == '/questoes')?'active':'' ?>" href="/questoes">Quiz</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link <?= ($recurso == '/alternativas')?'active':'' ?>" href="/alternativas">Alternativas</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
            

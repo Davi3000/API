@@ -50,11 +50,11 @@ include "menuLateral.php";
                         <!--Editar nome-email -->
                         <button class="btn btn-success btn-editar" data-id="<?= $users->UserID ?>" 
                         data-nome="<?= $users->nome ?>" data-email="<?= $users->email ?>">
-                        <i class="fas fa-pen" data-toggle="modal" data-target="#modaleditar"></i></button>
+                        <i class="fas fa-edit" data-toggle="modal" data-target="#modaleditar"></i></button>
 
                         <!--Editar senha -->
                         <button class="btn btn-warning alterar-senha" data-id="<?= $users->UserID ?>">
-                        <i class="fas fa-pen" data-toggle="modal" data-target="#modalsenha"></i></button>
+                        <i class="fas fa-lock" data-toggle="modal" data-target="#modalsenha"></i></button>
 
                         <!--Apagar -->
                         <a class="btn btn-danger" href="usercontrol.php?acao=apagar&id=<?= $users->UserID ?>">
@@ -113,7 +113,7 @@ include "menuLateral.php";
                         <input type="hidden" name="id" id="campo-id">
                         <div class="form-group">
 						<label for="senha">Senha</label>
-						<input type="password" name="senha" class="form-control" id="novasenha" placeholder="Senha">
+						<input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
 					</div>
                     </div>
                     <div class="modal-footer">
@@ -161,13 +161,15 @@ include "menuLateral.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    
-    var botao = document.querySelector(".alterar-senha");
-    console.log(botao);
-    botao.addEventListener("click", function() {
-        var campo = document.querySelector("#campo-id");
-        campo.value = botao.getAttribute("data-id");
-    });
+
+    var btnSenha = document.querySelectorAll(".alterar-senha");
+    console.log(btnSenha);
+    btnSenha.forEach(function(btnSenha){
+        btnSenha.addEventListener("click", function(){
+            var id = document.querySelector("#campo-id");
+            id.value = btnSenha.getAttribute("data-id");
+        })
+    })
 
     var button = document.querySelectorAll(".btn-editar");
     console.log(button);

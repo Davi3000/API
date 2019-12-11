@@ -11,7 +11,7 @@ class alternativasDAO{
 function __construct(){
         $this->conAlternativa = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     }
-    public function inserirAlternativa(){
+    public function inserirAlternativas(){
         $sql = "INSERT INTO  alternativas  VALUES(DEFAULT, '$this->texto','$this->correta', '$this->idQuestao')";
         $rs = $this->conAlternativa->query($sql);
         if($rs){
@@ -31,7 +31,7 @@ function __construct(){
         }
     }
     public function buscarAlternativas(){
-        $sql = "SELECT * FROM alternativas WHERE idQuestao= $this->idQuestao";
+        $sql = "SELECT * FROM alternativas WHERE idQuestao = idQuestao";
         $rs = $this->conAlternativa->query($sql);
         while($linha = $rs->fetch_object()){
             $listaDeAlternativas[] = $linha;

@@ -61,7 +61,7 @@ class UsuarioDAO
 
     public function trocaSenha($id, $senha)
     {
-        $sql = "UPDATE users SET Senha=md5('$senha') WHERE UserID=$id";
+        $sql = "UPDATE users SET senha=md5('$this->senha') WHERE UserID= $this->id";
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
