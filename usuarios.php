@@ -1,14 +1,12 @@
 <?php
 
 require "verificaUsuario.php";
-
 include "UsuarioDAO.php";
 include "alertas.php";
-$usuarioDAO = new UsuarioDAO();
-$lista = ($usuarioDAO->buscar());
-
 include "cabecalho.php";
 include "menuLateral.php";
+$usuarioDAO = new UsuarioDAO();
+$lista = ($usuarioDAO->buscar());
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

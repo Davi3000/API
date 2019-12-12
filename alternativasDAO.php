@@ -48,6 +48,7 @@ function __construct(){
             echo $this->conAlternativa->error;
         }
     }
+    
 
 }
 ?>

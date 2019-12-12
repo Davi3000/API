@@ -23,9 +23,9 @@ switch ($acao){
         $id = $_GET["id"];
         $alternativas->apagarAlternativas($id);
     break;
+    
 
     default:
         echo "Tem erro na seu codigo? Você e o vergonha da pofission!";
     break;
 }
-?>

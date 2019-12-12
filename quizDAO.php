@@ -8,7 +8,6 @@ class quizDAO
 
 {
     public $Desafio;
-
     public $TDesafio;
     private $conQuiz;
 
@@ -62,4 +61,5 @@ class quizDAO
         }
         header("Location: /questoes");
     }
+    
 }

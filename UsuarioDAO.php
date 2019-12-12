@@ -11,23 +11,11 @@ class UsuarioDAO
     {
         $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     }
-    public function apagar($id)
-    {
 
-        $sql = "DELETE FROM users WHERE UserID=$id";
-        $rs = $this->con->query($sql);
-        session_start();
-        if ($rs) {
-            $_SESSION["success"] = "usuário apagado com sucesso";
-        } else {
-            $_SESSION["dangen"] = "Error Fatal...você não conseguiu se apagar ;)";
-        }
-        header("Location: /usuarios");
-    }
     public function inserir()
     {
 
-        $sql = "INSERT INTO users VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
+        $sql = "INSERT INTO users VALUES (default, '$this->nome', '$this->email', md5('$this->senha'))";
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
@@ -47,13 +35,14 @@ class UsuarioDAO
         }
         return $listaDeUsuarios;
     }
-    public function editar(){
+    public function editar()
+    {
         $sql = "UPDATE users SET nome='$this->nome', email = '$this->email' WHERE UserID = $this->id";
         $rs = $this->con->query($sql);
         session_start();
-        if($rs){
+        if ($rs) {
             $_SESSION["success"] = "Nome e/ou email alterado com sucesso ;)";
-        } else{
+        } else {
             $_SESSION["danger"] = "Deu ruim pra alterar o nome e/ou email :o";
         }
         header("Location: /usuarios");
@@ -71,14 +60,26 @@ class UsuarioDAO
         }
         header("Location: /usuarios");
     }
+    public function apagar($id)
+    {
 
+        $sql = "DELETE FROM users WHERE UserID=$id";
+        $rs = $this->con->query($sql);
+        session_start();
+        if ($rs) {
+            $_SESSION["success"] = "usuário apagado com sucesso";
+        } else {
+            $_SESSION["dangen"] = "Error Fatal...você não conseguiu se apagar ;)";
+        }
+        header("Location: /usuarios");
+    }
     public function logar()
     {
         $sql = "SELECT * FROM users WHERE
             email='$this->email' AND
             senha=md5('$this->senha')";
         $rs = $this->con->query($sql);
-        if ($rs->num_rows) {
+        if ($rs->num_rows > 0) {
             session_start();
             $_SESSION["logado"] = true;
             header("Location:/usuarios");
@@ -88,6 +89,7 @@ class UsuarioDAO
     }
     public function sair()
     {
+        session_start();
         session_destroy();
         header("Location: /");
     }
