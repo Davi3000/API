@@ -15,7 +15,7 @@ function __construct(){
         $sql = "INSERT INTO  alternativas  VALUES(DEFAULT, '$this->texto','$this->correta', '$this->idQuestao')";
         $rs = $this->conAlternativa->query($sql);
         if($rs){
-            header("Location: /alternativas?idQuestAl=". 'this->idQuestao');
+            header("Location: /alternativas?idQuestAl=$this->idQuestao");
         } else{
             echo $this->conAlternativa->error;
         }
@@ -31,7 +31,7 @@ function __construct(){
         }
     }
     public function buscarAlternativas(){
-        $sql = "SELECT * FROM alternativas WHERE idQuestao = idQuestao";
+        $sql = "SELECT * FROM alternativas WHERE idQuestao = $this->idQuestao";
         $rs = $this->conAlternativa->query($sql);
         while($linha = $rs->fetch_object()){
             $listaDeAlternativas[] = $linha;
@@ -39,15 +39,17 @@ function __construct(){
         return $listaDeAlternativas;
     }
     public function apagarAlternativas($idAlternativa){
-        $sql = "DELETE FROM alternativas WHERE idAlternativa = '$this->id'";
+        $sql = "DELETE FROM alternativas WHERE idAlternativa = '$idAlternativa'";
         $rs = $this->conAlternativa->query($sql);
-        if($rs){
-            header("Location: /alternativas");
+        session_start();
+        if ($rs) {
+            $_SESSION["success"] = "Alternativa Apagada!!AAAAA";
+        } else {
+            $_SESSION["danger"] = "Error Mortal... Não deu pra apagar brow :(";
         }
-        else{
-            echo $this->conAlternativa->error;
-        }
+        header("Location: /alternativas?idQuestAl=$this->idQuestao");
     }
+    
     
 
 }

@@ -20,6 +20,7 @@ switch ($acao){
 
     case 'apagarAlternativas':
         $alternativas = new alternativasDAO();
+		$alternativas->idQuestao = $_GET["idQuestao"];
         $id = $_GET["id"];
         $alternativas->apagarAlternativas($id);
     break;

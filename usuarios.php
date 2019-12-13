@@ -24,6 +24,7 @@ $lista = ($usuarioDAO->buscar());
 
     <div class="col-10">
         <?php mostrarAlerta("success"); ?>
+        <?php mostrarAlerta("danger"); ?>
         <h1>Usuários</h1>
         <button class="btn btn-dark" data-toggle="modal" data-target="#newmodal">
             <i class="fas fa-user-plus">

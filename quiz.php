@@ -22,6 +22,7 @@ $listaQuiz = ($quizDAO->buscarQuiz());
 <body>
 
   <div class="col-10">
+  <?php mostrarAlerta("success"); ?>
     <h1>Desafios</h1>
     <button class="btn btn-dark" data-toggle="modal" data-target="#newmodalQuiz">
       Cadastrar pergunta
@@ -44,7 +45,7 @@ $listaQuiz = ($quizDAO->buscarQuiz());
             <a class="btn btn-success" href="/alternativas?idQuestAl=<?= $questions->IDDesafio ?>"><i class="fas fa-plus"></i></a>
 
             <!--Altera o tipo da questão -->
-            <button class="btn btn-warning alterar-tipo" data-id="<?= $questions->IDDesafio ?>"><i class="fas fa-edit" data-toggle="modal" data-target="#newmodalQuiz"></i></button>
+            <button class="btn btn-warning alterar-tipo" data-id="<?= $questions->IDDesafio ?>"><i class="fas fa-edit" data-toggle="modal" data-target="#ModalEditar"></i></button>
 
             <!--Apagar Alternatica -->
             <a class="btn btn-danger" href="quizcontrol.php?acao=apagarQuiz&id=<?= $questions->IDDesafio ?>"><i class="fas fa-trash-alt"></i></a>
@@ -79,7 +80,8 @@ $listaQuiz = ($quizDAO->buscarQuiz());
       </div>
     </div>
   </div>
-  <div class="modal fade" id="newmodalQuiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+</div>
+  <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -96,7 +98,9 @@ $listaQuiz = ($quizDAO->buscarQuiz());
             <input type="hidden" name="id" id="campo-id">
             <div class="input-group mb-3">
 
-              <input type="text" name="senha" class="form-control" placeholder="Pergunta" aria-label="Username" aria-describedby="basic-addon1">
+              <input type="text" name="Desafio" class="form-control" placeholder="Pergunta: " aria-label="Username" aria-describedby="basic-addon1">
+              <input type="text" name="TDesafio" class="form-control" placeholder="Tipo: " aria-label="Username" aria-describedby="basic-addon1">
+
             </div>
         </div>
         <div class="modal-footer">
@@ -122,6 +126,7 @@ $listaQuiz = ($quizDAO->buscarQuiz());
       id.value = btnTipo.getAttribute("data-id");
     })
   })
+  
 </script>
 
 </html>

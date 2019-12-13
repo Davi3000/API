@@ -4,7 +4,7 @@ include "alternativasDAO.php";
 $alternativasDAO = new alternativasDAO();
 $alternativasDAO->idQuestao=$_GET["idQuestAl"];
 $listaDeAlternativas = ($alternativasDAO->buscarAlternativas());
-
+include "alertas.php";
 include "cabecalho.php";
 include "menuLateral.php";?>
 <!DOCTYPE html>
@@ -19,6 +19,7 @@ include "menuLateral.php";?>
 </head>
 <body>
 <div class="col-10">
+      <?php mostrarAlerta("success"); ?>
             <h1>Alternativas</h1>
                 <button class="btn btn-dark" data-toggle="modal"  data-target="#newmodalAlternativa">
                 Cadastrar Alternativa(s)
@@ -38,9 +39,8 @@ include "menuLateral.php";?>
                         <td><?= $alternativas->correta?></td>
                         <td><?= $alternativas->idQuestao?></td>
                         <td>
-                            <button class="btn btn-success"><i class="fas fa-pen"></i></button>
-                            <button class="btn btn-warning alterar-senha" data-id="<?= $alternativas->idAlternativa?>"><i class="fas fa-pen" data-toggle="modal" data-target="#newmodalAlternativa"></i></button>
-                            <a class="btn btn-danger" href="alternativascontrol.php?acao=apagarAlternativa&id=<?= $alternativas->idAlternativa?>"><i class="fas fa-trash-alt"></i></a>
+                            
+                            <a class="btn btn-danger" href="alternativascontrol.php?acao=apagarAlternativas&id=<?= $alternativas->idAlternativa?>&idQuestao=<?= $alternativas->idQuestao ?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         
                         
@@ -58,7 +58,7 @@ include "menuLateral.php";?>
         </button>
       </div>
       <div class="modal-body">
-    <form action="alternativascontrol.php?acao=inserirAlternativa" method="POST">
+    <form action="alternativascontrol.php?acao=inserirAlternativas" method="POST">
       <div class="input-group mb-3">
         <input type="text" name="texto" class="form-control" placeholder="Escreva a Alternativa"  aria-describedby="basic-addon1">
         <input type="text" name="correta" class="form-control" placeholder="Digite o tipo da questão..."  aria-describedby="basic-addon1">

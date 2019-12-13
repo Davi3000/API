@@ -29,7 +29,7 @@ class quizDAO
     }
     public function trocarQuiz()
     {
-        $sql = "UPDATE questions SET Desafio WHERE IDDesafio=$this->id";
+        $sql = "UPDATE questions SET Desafio = '$this->Desafio', TDesafio = '$this->TDesafio' WHERE IDDesafio=$this->id";
         $rs = $this->conQuiz->query($sql);
         session_start();
         if ($rs) {
@@ -52,6 +52,7 @@ class quizDAO
     public function apagarQuiz($id)
     {
         $sql = "DELETE FROM questions WHERE IDDesafio=$id";
+        //echo $sql;
         $rs = $this->conQuiz->query($sql);
         session_start();
         if ($rs) {

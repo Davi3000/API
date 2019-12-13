@@ -19,7 +19,8 @@ switch ($acao) {
         $questions = new quizDAO();
         $questions->id =  $_POST["id"];
         $questions->Desafio =  $_POST["Desafio"];
-        $questions->trocarQuiz($IDDesafio, $Desafio);
+        $questions->TDesafio = $_POST["TDesafio"];
+        $questions->trocarQuiz();
         break;
     
     default:
