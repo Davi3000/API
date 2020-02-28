@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `alternativas` (
   `idAlternativa` int(11) NOT NULL,
   `texto` text NOT NULL,
-  `correta` tinyint(4) NOT NULL,
+  `correta` boolean,
   `idQuestao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

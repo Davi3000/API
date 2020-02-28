@@ -5,9 +5,15 @@ switch ($acao){
     case 'inserirAlternativas':
 		$alternativa = new AlternativasDAO();
 		$alternativa->texto = $_POST["texto"];
-		$alternativa->idQuestao = $_POST["idQuestao"];
-		if (isset($_POST["correta"])) $alternativa->correta = 1;
-		else $alternativa->correta = 0;
+        $alternativa->idQuestao = $_POST["idQuestao"];
+        if(isset($_POST["correta"]) == 1){
+            $alternativa->correta = $_POST["correta"]; 
+        }elseif(isset($_POST["correta"]) == 0){
+            $alternativa->correta = $_POST["correta"];
+        }
+
+		/*if (isset($_POST["correta"])) $alternativa->correta = 1;
+		else $alternativa->correta = 0;*/
 		$alternativa->inserirAlternativas();
 		break;
 
